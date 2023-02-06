@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+    postgres-dev:
+      image: postgres:13
+      ports:
+        - "5447:5432"
+      volumes:
+        - ./var/postgresql-data-local/:/var/lib/postgresql/data/
+      environment:
+        POSTGRES_DB: death_bot
+        POSTGRES_USER: death_bot
+        POSTGRES_PASSWORD: death_bot
+ 
