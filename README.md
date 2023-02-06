@@ -1,7 +1,9 @@
 **Require:**
 
 > docker, docker-compose
+
 > Python >= 3.10
+
 > poetry
 
 **Install:**
