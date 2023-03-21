@@ -10,5 +10,3 @@ db:
 run:
 	$(VENV)/bin/python death_bot_panel/manage.py runserver 0.0.0.0:${PORT}
 
-
-

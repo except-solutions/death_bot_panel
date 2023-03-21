@@ -1,0 +1,27 @@
+{
+  "$shema": "https://puremourning.github.com/vimspector/schema/vimspector.schema.json",
+  "configurations": {
+    "django": {
+      "adapter": "debugpy",
+      "configuration": {
+        "request":  "launch",
+        "stopOnEntry": true,
+        "python": "${VIRTUAL_ENV}/bin/python3",
+        "program": "${workspaceRoot}/death_bot_panel/manage.py",
+        "args": [ "runserver", "localhost:5555", "--noreload" ],
+        "django": true
+      }
+    },
+    "django-test": {
+      "adapter": "debugpy",
+      "configuration": {
+        "request":  "launch",
+        "stopOnEntry": true,
+        "python": "${VIRTUAL_ENV}/bin/python3",
+        "program": "${workspaceRoot}/death_bot_panel/manage.py",
+        "args": ["test", "${workspaceRoot}/tests/**"],
+        "django": true
+      }
+    }
+  }
+}
