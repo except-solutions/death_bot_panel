@@ -16,10 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from death_bot_panel.quotes.urls import urlpatterns as quotes_urls
+from death_bot_panel.auth.urls import urlpatterns as auth_urls
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path(
         "api/",
-        include("death_bot_panel.quotes.urls"),
+        include(quotes_urls + auth_urls),
     ),
 ]

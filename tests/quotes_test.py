@@ -21,4 +21,3 @@ class QuotesTest(TestCase):
         self.assertEqual(quote["fields"]["text"], self.test_quote.text)
         self.assertEqual(quote["fields"]["author"], self.test_quote.author)
         self.assertEqual(quote["fields"]["active"], self.test_quote.active)
-
