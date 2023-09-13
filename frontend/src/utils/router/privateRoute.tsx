@@ -1,8 +1,11 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { IPropsPrivateRoute } from './interfaces';
+import { useAuth } from '../hook';
 
-const PrivateRoute: React.FC< IPropsPrivateRoute> = (props: IPropsPrivateRoute): JSX.Element => {
-  return props.token ? <Outlet /> : <Navigate to="login" />;
-};
+const PrivateRoute = () => {
+  const auth = useAuth()
+  return (
+    auth ? <Outlet /> : <Navigate to="login" /> 
+  )
+}
 
 export default PrivateRoute;
