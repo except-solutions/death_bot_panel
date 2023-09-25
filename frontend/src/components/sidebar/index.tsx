@@ -18,7 +18,6 @@ import { ChevronLeftOutlined, ChevronRightOutlined, LogoutOutlined } from '@mui/
 import { useLocation, useNavigate } from 'react-router-dom';
 import FlexBetween from '../flex-between';
 import { navMenu } from '../../common/mocs/navigate';
-import { tokens } from '../../theme';
 import Logo from '../../assets/images/sidebar/Logo.png';
 
 const SidebarComponent = (props: any) => {
@@ -28,7 +27,6 @@ const SidebarComponent = (props: any) => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const theme = useTheme();
-  const colors = tokens(theme.palette.mode);
 
   const renderNavMenu = navMenu.map((element): JSX.Element => {
     return (
@@ -64,20 +62,12 @@ const SidebarComponent = (props: any) => {
               width: drawerWidth,
             },
           }}>
-          <Box
-            width="100%"
-            sx={{
-              borderBottom: `1px solid ${colors.borderColor}`,
-            }}>
+          <Box className={classes.navBlock}>
             <Box>
               <FlexBetween>
                 <Box className={classes.brand}>
                   <img src={Logo} width="50px" height="50px" alt="Logo image" />
-                  <Typography
-                    variant="h1"
-                    color={
-                      theme.palette.mode === 'dark' ? colors.white.DEFAULT : colors.black.DEFAULT
-                    }>
+                  <Typography variant="h1" className={classes.brandTitle}>
                     DeathBot
                   </Typography>
                 </Box>
@@ -88,7 +78,7 @@ const SidebarComponent = (props: any) => {
                 )}
               </FlexBetween>
             </Box>
-            <List sx={{ marginBottom: '55px' }}>{renderNavMenu}</List>
+            <List className={classes.navList}>{renderNavMenu}</List>
           </Box>
           <Box width="100%">
             <List>
