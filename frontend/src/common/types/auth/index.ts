@@ -1,16 +1,26 @@
-export interface IPropsLogin {
-    setPassword: (value: string) => void
-    setEmail: (value: string) => void
-    navigate: (to: string) => void
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form"
+
+interface UserFieldValues extends FieldValues {
+    email: string;
+    password: string;
 }
 
-export interface IPropsRegister {
-    setEmail: (value: string) => void
-    setPassword: (value: string) => void
-    setRepeatPassword: (value: string) => void
-    setFirstName: (value: string) => void
-    setUsername: (value: string) => void
+export interface IPropsLogin<
+    TFieldValues extends UserFieldValues = UserFieldValues,
+    TContext = any,
+    > {
     navigate: (to: string) => void
+    register: UseFormRegister<TFieldValues>
+    errors: FieldErrors<TFieldValues>
+}
+
+export interface IPropsRegister <
+    TFieldValues extends UserFieldValues = UserFieldValues,
+    TContext = any,
+    > {
+    navigate: (to: string) => void
+    register: UseFormRegister<TFieldValues>
+    errors: FieldErrors<TFieldValues>
 }
 
 export interface IAuthState {
@@ -35,4 +45,16 @@ interface IWatchList {
     createdAt: string,
     updatedAt: string, 
     user: number | null
+}
+
+export interface ILoginData {
+    email: string
+    password: string
+}
+
+export interface IRegisterData {
+    email: string
+    password: string
+    firstName: string
+    userName: string
 }

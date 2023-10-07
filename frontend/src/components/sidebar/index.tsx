@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
+import React, { FC, useEffect } from 'react';
 import { useState } from 'react';
 import { useStyles } from './styles';
 import {
   Box,
   Drawer,
-  Divider,
   IconButton,
   List,
   ListItem,
@@ -14,13 +13,14 @@ import {
   Typography,
   useTheme,
 } from '@mui/material';
-import { ChevronLeftOutlined, ChevronRightOutlined, LogoutOutlined } from '@mui/icons-material';
+import { ChevronLeftOutlined, LogoutOutlined } from '@mui/icons-material';
 import { useLocation, useNavigate } from 'react-router-dom';
 import FlexBetween from '../flex-between';
 import { navMenu } from '../../common/mocs/navigate';
 import Logo from '../../assets/images/sidebar/Logo.png';
+import { ISidebarProps } from '../../common/types/sidebar';
 
-const SidebarComponent = (props: any) => {
+const SidebarComponent: FC<ISidebarProps> = (props: ISidebarProps): JSX.Element => {
   const [active, setActive] = useState('');
   const { isNoneMobile, drawerWidth, isOpen, setIsOpen } = props;
   const classes = useStyles();
@@ -32,7 +32,11 @@ const SidebarComponent = (props: any) => {
     return (
       <ListItem key={element.id}>
         <ListItemText>
-          <ListItemButton className={classes.navItem} onClick={() => navigate(`${element.path}`)}>
+          <ListItemButton
+            className={
+              active === element.path ? `${classes.navItem} ${classes.active}` : classes.navItem
+            }
+            onClick={() => navigate(`${element.path}`)}>
             <ListItemIcon>{element.icon}</ListItemIcon>
             <Typography variant={'body1'}> {element.name} </Typography>
           </ListItemButton>
@@ -42,7 +46,7 @@ const SidebarComponent = (props: any) => {
   });
 
   useEffect(() => {
-    setActive(pathname.substring(1));
+    setActive(pathname);
   }, [pathname]);
 
   return (
@@ -68,7 +72,7 @@ const SidebarComponent = (props: any) => {
                 <Box className={classes.brand}>
                   <img src={Logo} width="50px" height="50px" alt="Logo image" />
                   <Typography variant="h1" className={classes.brandTitle}>
-                    DeathBot
+                    Death Bot
                   </Typography>
                 </Box>
                 {!isNoneMobile && (
