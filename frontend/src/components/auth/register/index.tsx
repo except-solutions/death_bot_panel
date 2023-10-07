@@ -4,7 +4,7 @@ import { IPropsRegister } from '../../../common/types/auth';
 
  
 const RegisterPage: React.FC<IPropsRegister> = (props: IPropsRegister): JSX.Element => {
-    const {setEmail, setPassword, setRepeatPassword, setFirstName, setUsername} = props
+    const {setEmail, setPassword, setRepeatPassword, setFirstName, setUsername, navigate} = props
     return (
         <>
             <Typography variant="h2" fontFamily='Poppins' textAlign='center'>Регистрация</Typography>
@@ -15,7 +15,7 @@ const RegisterPage: React.FC<IPropsRegister> = (props: IPropsRegister): JSX.Elem
             <TextField type='password' fullWidth={true} margin='normal' label="Password" variant="outlined" placeholder='Введите ваш пароль' onChange={(e) => setPassword(e.target.value)}/>
             <TextField type='password' fullWidth={true} margin='normal' label="Password" variant="outlined" placeholder='Повторите ваш пароль' onChange={(e) => setRepeatPassword(e.target.value)}/>
             <Button type='submit' sx={{fontFamily: 'Poppins', marginTop: 2, width: '60%', marginBottom: 2}} variant="contained">Регистрация</Button>
-            <Typography variant="body1" sx={{fontFamily: 'Poppins'}}>У вас есть аккаунт?<span className='incitingText'>Войти</span></Typography>
+            <Typography variant="body1" sx={{fontFamily: 'Poppins'}}>У вас есть аккаунт?<span className='incitingText' onClick={() => navigate('/login')}>Войти</span></Typography>
         </>
 
     );
