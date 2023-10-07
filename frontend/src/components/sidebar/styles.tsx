@@ -12,7 +12,7 @@ export const useStyles = makeStyles((theme: Theme) => {
     brand: {
       display: 'flex',
       alignItems: 'center',
-      gap: '10px',
+      gap: '15px',
       padding: '30px 15px',
       cursor: 'pointer',
     },
@@ -31,6 +31,11 @@ export const useStyles = makeStyles((theme: Theme) => {
           color: `${colors.white.DEFAULT} !important`,
         },
       },
+    },
+    active: {
+      backgroundColor: '#1900D5 !important',
+      color: '#fff !important',
+      borderRadius: '4px !important',
     },
   };
 });
