@@ -4,6 +4,7 @@ import {
   MenuBookOutlined,
   SettingsOutlined,
   BookOnlineOutlined,
+  LibraryAddCheck,
 } from '@mui/icons-material';
 
 export const navMenu = [
@@ -30,5 +31,11 @@ export const navMenu = [
     icon: <SettingsOutlined />,
     path: '/settings',
     id: 4,
+  },
+  {
+    name: 'Цитаты',
+    icon: <LibraryAddCheck />,
+    path: '/quotes',
+    id: 5,
   },
 ];
